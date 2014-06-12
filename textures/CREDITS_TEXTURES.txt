@@ -1,0 +1,21 @@
+
+Unless otherwise stated (below), the textures used in this mod are my own 
+original artwork or created from my own photographs.
+
+Credits:
+
+  Vanessa Ezekowitz (VanessaE): https://github.com/VanessaE
+    
+    Vanessa also updated many of my original textures. Many thanks.
+    
+    -- Bottle textures based on textures from the HDX texture pack
+    -- Pick Axe textures based on textures from the HDX texture pack
+        
+      http://commons.wikimedia.org/wiki/File:Drystone_wall_tileable_1024x1024.jpg
+        -- Drystone basalt
+        -- Drystone sandstone
+
+    -- Platinum (HDX-16)
+    -- Bauxite (HDX-16)
+    -- Titanium (HDX-16)
+    
