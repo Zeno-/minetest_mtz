@@ -5,7 +5,7 @@ mtz.modpath = minetest.get_modpath("mtz")
 minetest.register_alias("mtz_flora:mycena",                  "mtz:mycena")
 minetest.register_alias("mtz_flora:lum_sand",                "mtz:lum_sand")
 
-minetest.register_alias("mtz_geology:orichalcum_gem",        "mtz_orichalcum_gem")
+minetest.register_alias("mtz_geology:orichalcum_gem",        "mtz:orichalcum_gem")
 minetest.register_alias("mtz_geology:stone_with_orichalcum", "mtz:stone_with_orichalcum")
 minetest.register_alias("mtz_geology:rod_steel",             "mtz:steelrod")
 minetest.register_alias("mtz_geology:pick_orichalcum",       "mtz:pick_orichalcum")
