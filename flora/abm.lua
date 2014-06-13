@@ -1,8 +1,8 @@
-local mycena_interval     = 60*60
-local mycena_chance       = 120
+local mycena_interval     = 60*4
+local mycena_chance       = 250
 
-local lumsand_interval    = 60*60*2
-local lumsand_chance      = 1000
+local lumsand_interval    = 60*8
+local lumsand_chance      = 500
 
 minetest.register_abm({
     nodenames = {"default:dirt", "default:dirt_with_grass"},
@@ -56,7 +56,7 @@ minetest.register_abm({
         if #count == 0 then -- if waterbody not inoculated
             count = minetest.find_nodes_in_area(pos0, pos1, "default:water_source")
             if #count < 9 then -- not enough water
-            --    print("not enought water: " .. #wcount)
+            --    print("not enough water: " .. #wcount)
                 return
             end
         end
@@ -70,8 +70,10 @@ minetest.register_abm({
             return
         end
         
-        minetest.set_node(pos, {name = "mtz:lum_sand"})
-        --print("mtz_flora:lum_sand spawned at ".. minetest.pos_to_string(pos))
+		local nodechoices = { "mtz:lum_sand", "mtz:lum_sand_2", "mtz:lum_sand_3", "mtz:lum_sand_4" }
+		local nodename = nodechoices[math.random(1, 4)]
+        minetest.set_node(pos, {name = nodename} )
+        print(nodename.." spawned at ".. minetest.pos_to_string(pos))
 
     end
 })
