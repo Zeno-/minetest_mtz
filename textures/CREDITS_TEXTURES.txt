@@ -18,4 +18,8 @@ Credits:
     -- Platinum (HDX-16)
     -- Bauxite (HDX-16)
     -- Titanium (HDX-16)
+
+    Tool heads: provided by VanessaE
+
+    
     
