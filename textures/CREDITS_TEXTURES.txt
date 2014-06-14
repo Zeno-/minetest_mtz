@@ -19,7 +19,7 @@ Credits:
     -- Bauxite (HDX-16)
     -- Titanium (HDX-16)
 
-    Tool heads: provided by VanessaE
+    Tool heads: provided by VanessaE	(If they look terrible at 32x32 that's my fault)
 
     
     
