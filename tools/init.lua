@@ -21,7 +21,7 @@ for i in ipairs(forgeitems) do
 	
 	minetest.register_craftitem(out_item.."_forged", {
 		description = desc.." forged",
-		inventory_image = img
+		inventory_image = "mtz_forged_bg.png^"..img
 	})
 	
 	minetest.register_craft({
