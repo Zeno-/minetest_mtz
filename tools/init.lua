@@ -7,9 +7,9 @@ local forgeitems = {
 }
 
 local tooldefs = {
-	{ "mtz:pick_forgedsteel",	"mtz:pick_steel_head" },
-	{ "mtz:shovel_forgedsteel", "mtz:axe_steel_head" },
-	{ "mtz:axe_forgedsteel",	"mtz:axe_steel_head" },
+	{ "mtz:pick_forgedsteel",	"mtz:pick_steel_head_forged" },
+	{ "mtz:shovel_forgedsteel", "mtz:axe_steel_head_forged" },
+	{ "mtz:axe_forgedsteel",	"mtz:axe_steel_head_forged" },
 }
 
 -- FIXME: The inventory image of the crafted tools is wrong, because default is 16x16px and mtz_forged_bg.png is 32x32
