@@ -1,6 +1,5 @@
 local mycena_interval     = 60*4
 local mycena_chance       = 250
-
 local lumsand_interval    = 60*8
 local lumsand_chance      = 500
 
@@ -28,8 +27,10 @@ minetest.register_abm({
 
         if minetest.find_node_near(destnode, 3, "default:jungletree") then
             if name == "air" then
-                minetest.set_node(destnode, {name = "mtz:mycena"})
-                -- print("Mycena spawned at ".. minetest.pos_to_string(pos))
+            		local nodechoices = { "mtz:mycena", "mtz:mycena_2", "mtz:mycena_3", "mtz:mycena_4" }
+                    local nodename = nodechoices[math.random(1, 4)]
+                    minetest.set_node(destnode, {name = nodename})
+                    -- print("Mycena spawned at ".. minetest.pos_to_string(pos))
             end
         end
     end
@@ -50,9 +51,7 @@ minetest.register_abm({
         local pos0 = { x = pos.x-3, y = pos.y-3, z = pos.z-3 }
         local pos1 = { x = pos.x+3, y = pos.y+3, z = pos.z+3 }
         
-        local count
-        
-        count = minetest.find_nodes_in_area(pos0, pos1, "mtz:lum_sand")
+        local count = minetest.find_nodes_in_area(pos0, pos1, "mtz:lum_sand")
         if #count == 0 then -- if waterbody not inoculated
             count = minetest.find_nodes_in_area(pos0, pos1, "default:water_source")
             if #count < 9 then -- not enough water
@@ -73,8 +72,7 @@ minetest.register_abm({
 		local nodechoices = { "mtz:lum_sand", "mtz:lum_sand_2", "mtz:lum_sand_3", "mtz:lum_sand_4" }
 		local nodename = nodechoices[math.random(1, 4)]
         minetest.set_node(pos, {name = nodename} )
-        print(nodename.." spawned at ".. minetest.pos_to_string(pos))
+        -- print(nodename.." spawned at ".. minetest.pos_to_string(pos))
 
     end
 })
---print("[MTZ-Flora] ABMs loaded")

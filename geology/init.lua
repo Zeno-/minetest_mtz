@@ -47,7 +47,7 @@ minetest.register_craftitem("mtz:ore_titanium", {
 
 minetest.register_node("mtz:stone_with_titanium", {
     description = "Titanium Ore (in stone)",
-    tiles = {"titanium_titanium_in_ground.png"},
+    tiles = {"default_stone.png^titanium_titanium_in_ground.png"},
     is_ground_content = true,
     groups = {cracky=1},
     drop = "mtz:ore_titanium",
