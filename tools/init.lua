@@ -6,6 +6,8 @@ local forgeitems = {
 	{ "default:shovel_steel",  	"mtz:shovel_steel_head", "mtz_steel_shovel_head.png", "Steel shovel head" },
 }
 
+-- TODO: Make this a function and call the function from within the loop
+
 for i in ipairs(forgeitems) do
 	local inp_item = forgeitems[i][1]
 	local out_item = forgeitems[i][2]
