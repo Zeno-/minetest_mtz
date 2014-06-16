@@ -1,23 +1,56 @@
 
 
-local forgeitems = {
-	{ "default:pick_steel", 	"mtz:pick_steel_head",	 "mtz_steel_pick_head.png",   "Steel pickaxe head" },
-	{ "default:axe_steel",  	"mtz:axe_steel_head",	 "mtz_steel_axe_head.png",    "Steel axe head" },
-	{ "default:shovel_steel",  	"mtz:shovel_steel_head", "mtz_steel_shovel_head.png", "Steel shovel head" },
+local dismantle_items = {
+	{
+		parenttool 	= "default:pick_steel",
+		toolhead	= "mtz:pick_steel_head",
+		img  		= "mtz_steel_pick_head.png",
+		desc 		= "Steel pickaxe head"
+	},
+	{
+		parenttool 	= "default:axe_steel",
+		toolhead	= "mtz:axe_steel_head",	
+		img			= "mtz_steel_axe_head.png",
+		desc		= "Steel axe head"
+	},
+	{
+		parenttool 	= "default:shovel_steel",
+		toolhead	= "mtz:shovel_steel_head",
+		img			= "mtz_steel_shovel_head.png",
+		desc		= "Steel shovel head"
+	}
 }
 
 local tooldefs = {
-	{ "mtz:pick_forgedsteel",	"mtz:pick_steel_head_forged" },
-	{ "mtz:shovel_forgedsteel", "mtz:axe_steel_head_forged" },
-	{ "mtz:axe_forgedsteel",	"mtz:axe_steel_head_forged" },
+	{ name 		= "mtz:pick_temperedsteel",
+		recipe		= {
+			{ "", "mtz:pick_steel_head_tempered", "" },
+			{ "", "default:stick", "" },
+			{ "", "default:stick", "" }
+		}
+	},
+	{ name = "mtz:shovel_temperedsteel",
+		recipe = {
+			{ "", "mtz:shovel_steel_head_tempered", "" },
+			{ "", "default:stick", "" },
+			{ "", "default:stick", "" }
+		}
+	},
+	{ name = "mtz:axe_temperedsteel",
+		recipe = {
+			{ "", "mtz:axe_steel_head_tempered", "" },
+			{ "", "default:stick", "" },
+			{ "", "default:stick", "" }
+		}
+	}
 }
 
--- FIXME: The inventory image of the crafted tools is wrong, because default is 16x16px and mtz_forged_bg.png is 32x32
+-- FIXME: The inventory image of the crafted tools is wrong, because default is 16x16px and mtz_tempered_bg.png is 32x32
 
 local toolattrs = {
 	{
-		description = "Forged Steel Pickaxe",
-		inventory_image = "mtz_forged_bg.png^default_tool_steelpick.png",
+		description = "Tempered Steel Pickaxe",
+		inventory_image = "mtz_tempered_bg.png^mtz_tool_steelpick.png",
 		wield_image = "default_tool_steelpick.png",
 		tool_capabilities = {
 			full_punch_interval = 1.0,
@@ -29,8 +62,8 @@ local toolattrs = {
 		},
 	},
 	{
-		description = "Forged Steel Shovel",
-		inventory_image = "mtz_forged_bg.png^default_tool_steelshovel.png",
+		description = "Tempered Steel Shovel",
+		inventory_image = "mtz_tempered_bg.png^mtz_tool_steelshovel.png",
 		wield_image = "default_tool_steelshovel.png^[transformR90",
 		tool_capabilities = {
 			full_punch_interval = 1.1,
@@ -42,8 +75,8 @@ local toolattrs = {
 		},
 	},
 	{
-		description = "Forged Steel Axe",
-		inventory_image = "mtz_forged_bg.png^default_tool_steelaxe.png",
+		description = "Tempered Steel Axe",
+		inventory_image = "mtz_tempered_bg.png^mtz_tool_steelaxe.png",
 		wield_image = "default_tool_steelaxe.png",
 		tool_capabilities = {
 			full_punch_interval = 1.0,
@@ -58,48 +91,37 @@ local toolattrs = {
 
 -- TODO: Make this a function and call the function from within the loop
 
-for i in ipairs(forgeitems) do
-	local inp_item = forgeitems[i][1]
-	local out_item = forgeitems[i][2]
-	local img = forgeitems[i][3]
-	local desc = forgeitems[i][4]
-	
-	minetest.register_craftitem(out_item, {
-		description = desc,
-		inventory_image = img
+for _, curritem in ipairs(dismantle_items) do
+	minetest.register_craftitem(curritem.toolhead, {
+		description = curritem.desc,
+		inventory_image = curritem.img
 	})
 	
-	minetest.register_craftitem(out_item.."_forged", {
-		description = desc.." forged",
-		inventory_image = "mtz_forged_bg.png^"..img
+	minetest.register_craftitem(curritem.toolhead.."_tempered", {
+		description = curritem.desc.." tempered",
+		inventory_image = "mtz_tempered_bg.png^"..curritem.img
 	})
 	
 	minetest.register_craft({
 		type = "shapeless",
-		output = out_item,
-		recipe = { inp_item },
-		replacements = { { inp_item, "default:stick 2" } }
+		output = curritem.toolhead,
+		recipe = { curritem.parenttool },
+		replacements = { { curritem.parenttool, "default:stick 2" } }
 	})
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = out_item.."_forged",
-		recipe = out_item,
+		output = curritem.toolhead.."_tempered",
+		recipe = curritem.toolhead,
 		cooktime = 10
 	})
 		
 	-- TODO: a) Make a function; b) Try and get the base values from the default game and modify them by a %
-	for t in ipairs(tooldefs) do
-		local name = tooldefs[t][1]
-		local head = tooldefs[t][2]
-		minetest.register_tool(name, toolattrs[t])
+	for t, tool in ipairs(tooldefs) do
+		minetest.register_tool(tool.name, toolattrs[t])
 		minetest.register_craft({
-			output = name,
-			recipe = {
-				{'', head, ''},
-				{'', 'group:stick', ''},
-				{'', 'group:stick', ''},
-			}
+			output = tool.name,
+			recipe = tool.recipe
 		})
 	end
 end
