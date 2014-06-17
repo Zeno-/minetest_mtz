@@ -1,6 +1,6 @@
-local mycena_interval     = 60*4
+local mycena_interval     = 60*20
 local mycena_chance       = 250
-local lumsand_interval    = 60*8
+local lumsand_interval    = 60*30
 local lumsand_chance      = 500
 
 minetest.register_abm({
