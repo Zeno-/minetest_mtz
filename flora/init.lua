@@ -36,7 +36,7 @@ end
 -- _Noctiluca scintillans_. Again, not a plant (it's a protist) but it's in this
 -- flora mod until I work out a better place to put it
 
-local sandlight = { 14, 11, 9, 7 }
+local sandlight = { 14, 10, 7, 4 }
 
 for i in ipairs(sandlight) do
 	local nodename
