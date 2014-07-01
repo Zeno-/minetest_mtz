@@ -22,6 +22,11 @@ minetest.register_alias("mtz_building:sanddrystone",         "mtz:sanddrystone")
 
 minetest.register_alias("mtz_tests:treespawner",             "mtz:test_treespawner")
 
+minetest.register_privilege("tester",
+        { "Player can test unreleased features.",
+          give_to_singleplayer= false }
+    )
+
 dofile(mtz.modpath.."/flora/init.lua")
 dofile(mtz.modpath.."/geology/init.lua")
 dofile(mtz.modpath.."/tests/init.lua")

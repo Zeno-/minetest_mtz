@@ -1,8 +1,3 @@
-minetest.register_privilege("tester",
-        { "Player can test unreleased features.",
-          give_to_singleplayer= false }
-    )
-
 local experimental_tree = {
     --- Trunk, FaceHorizotal, MainLeaderLeader
     axiom="/ FFF A FFF [&-- // b //// b //// b] F/[D-D][+D+D]",
@@ -10,7 +5,7 @@ local experimental_tree = {
     rules_b = "[^--TTTT C &&D][^----TTTT C &&D][^++TTTT C &&D][^++++TTTT C &&D]",
     rules_c = "&&//TTTC",
     rules_d = "[FF/FF/FF/FF]",
-    
+
     trunk="default:tree",
     leaves="default:leaves",
     --leaves2="",
