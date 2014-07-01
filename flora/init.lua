@@ -2,6 +2,7 @@
 -- Yes, I am aware that fungi are not plants
 
 local mushlight = { 4, 3, 2, 1 }
+local mushscale = { 1.5, 1.25, 1, 0.75 }
 
 for i in ipairs(mushlight) do
 	if i == 1 then
@@ -9,27 +10,29 @@ for i in ipairs(mushlight) do
 	else
 		nodename = "mtz:mycena_"..i
 	end
+	local vs = mushscale[i]
 
-    minetest.register_node(nodename, {
-        description = "Mycena sp",
-        drawtype = "plantlike",
-        tiles = { "mtz_fungi_Mycena_sp_single.png" },
-        inventory_image = "mtz_fungi_Mycena_sp_single.png",
-        wield_image = "mtz_fungi_Mycena_sp_single.png",
-        drop = "mtz:mycena",
-        sunlight_propagates = true,
-        paramtype = "light",
-        walkable = false,
-        buildable_to = true,
-        groups = {	snappy=3, flammable=0, flower=0, 
-                    flora=1, attached_node=1, color_green=1 },
-        sounds = default.node_sound_leaves_defaults(),
-        light_source = mushlight[i],
-        selection_box = {
-            type = "fixed",
-            fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
-        },
-    })
+	minetest.register_node(nodename, {
+			description = "Mycena sp",
+			drawtype = "plantlike",
+			tiles = { "mtz_fungi_Mycena_sp_single.png" },
+			inventory_image = "mtz_fungi_Mycena_sp_single.png",
+			wield_image = "mtz_fungi_Mycena_sp_single.png",
+			drop = "mtz:mycena",
+			sunlight_propagates = true,
+			paramtype = "light",
+			walkable = false,
+			buildable_to = true,
+			groups = {	snappy=3, flammable=0, flower=0,
+									flora=1, attached_node=1, color_green=1 },
+			sounds = default.node_sound_leaves_defaults(),
+			light_source = mushlight[i],
+			visual_scale = vs,
+			selection_box = {
+					type = "fixed",
+					fixed = { -0.15*vs, -0.5*vs, -0.15*vs, 0.15*vs, 0.2*vs, 0.15*vs },
+			},
+	})
 end
 
 -- The bioluminescent sand (in real life) is -- usually -- the result of
@@ -45,7 +48,7 @@ for i in ipairs(sandlight) do
 	else
 		nodename = "mtz:lum_sand_"..i
 	end
-	
+
 	minetest.register_node(nodename, {
 		description = "Bioluminescent Sand",
 		drop = "mtz:lum_sand",
