@@ -2,7 +2,7 @@
 -- Yes, I am aware that fungi are not plants
 
 local mushlight = { 4, 3, 2, 1 }
-local mushscale = { 1.25, 1, 0.75, 0.5 }
+local mushscale = { 1.0, 0.90, 0.75, 0.5 }
 
 for i in ipairs(mushlight) do
 	if i == 1 then
