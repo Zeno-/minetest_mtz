@@ -92,7 +92,7 @@ minetest.register_craft({
     output = "mtz:mortar_and_pestel",
     recipe = {
         {"default:stone", "", "default:stone"},
-        {"default:stone", "", "default:stone"},
         {"", "default:stone", ""},
+        {"default:stone", "default:stone", "default:stone"},
         }
 })
