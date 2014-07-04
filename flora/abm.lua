@@ -36,6 +36,43 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	nodenames = {"default:dirt", "default:dirt_with_grass"},
+	neighbors = {"default:tree", "default:leaves"},
+	interval = 60*20,
+	chance = 1000,
+
+	action = function(pos, node)
+		local destnode = { x = pos.x, y = pos.y+1, z = pos.z}
+		local name = minetest.get_node(destnode).name
+
+		if (name ~= "air") then
+				return
+		end
+
+		local pos0 = { x = destnode.x-4, y = destnode.y-4, z = destnode.z-4 }
+		local pos1 = { x = destnode.x+4, y = destnode.y+4, z = destnode.z+4 }
+
+		local mushcount = minetest.find_nodes_in_area(pos0, pos1,
+			{ "mtz:mushroom_a", "mtz:mushroom_a_group" }
+		)
+
+		if #mushcount > 3 then
+			return
+		end
+
+		local nodename
+		if math.random() < .2 then
+			nodename = "mtz:mushroom_a_group"
+		else
+			nodename = "mtz:mushroom_a"
+		end
+
+		minetest.set_node(destnode, {name = nodename})
+
+end
+})
+
+minetest.register_abm({
 		nodenames = {"default:sand"},
 		interval = lumsand_interval,
 		chance =  lumsand_chance,

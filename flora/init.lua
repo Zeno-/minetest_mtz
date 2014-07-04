@@ -35,6 +35,46 @@ for i in ipairs(mushlight) do
 	})
 end
 
+minetest.register_node("mtz:mushroom_a", {
+	description = "Mushroom",
+	drawtype = "plantlike",
+	tiles = { "mtz_mushroom_a_single.png" },
+	inventory_image = "mtz_mushroom_a_single.png",
+	weild_image = "mtz_mushroom_a_single.png",
+	drop = "mtz:mushroom_a",
+	sunlight_propagates = true,
+	paramtype = "light",
+	walkable = false,
+	buildable_to = true,
+	groups = {	snappy=3, flammable=0, flower=0,
+							flora=1, attached_node=1 },
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+			type = "fixed",
+			fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
+	},
+})
+
+minetest.register_node("mtz:mushroom_a_group", {
+	description = "Mushroom",
+	drawtype = "plantlike",
+	tiles = { "mtz_mushroom_a_group.png" },
+	inventory_image = "mtz_mushroom_a_group.png",
+	weild_image = "mtz_mushroom_a_group.png",
+	drop = "mtz:mushroom_a 3",
+	sunlight_propagates = true,
+	paramtype = "light",
+	walkable = false,
+	buildable_to = true,
+	groups = {	snappy=3, flammable=0, flower=0,
+							flora=1, attached_node=1 },
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+			type = "fixed",
+			fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
+	},
+})
+
 -- The bioluminescent sand (in real life) is -- usually -- the result of
 -- _Noctiluca scintillans_. Again, not a plant (it's a protist) but it's in
 -- flora mod until I work out a better place to put it
