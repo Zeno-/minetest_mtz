@@ -33,3 +33,5 @@ dofile(mtz.modpath.."/tests/init.lua")
 dofile(mtz.modpath.."/vessels/init.lua")
 dofile(mtz.modpath.."/tools/init.lua")
 dofile(mtz.modpath.."/building/init.lua")
+
+dofile(mtz.modpath.."/forbiddenitems.lua")

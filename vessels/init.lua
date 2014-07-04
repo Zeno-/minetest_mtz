@@ -48,7 +48,7 @@ minetest.register_node("mtz:apple_juice", {
     },
     groups = {vessel=1,dig_immediate=3,attached_node=1},
     sounds = default.node_sound_glass_defaults(),
-    on_use = minetest.item_eat(3, "vessels:glass_bottle"),	
+    on_use = minetest.item_eat(3, "vessels:glass_bottle"),
 })
 
 minetest.register_craft({
@@ -91,11 +91,8 @@ minetest.register_craftitem("mtz:mortar_and_pestel", {
 minetest.register_craft({
     output = "mtz:mortar_and_pestel",
     recipe = {
-        {"", "", ""},
+        {"default:stone", "", "default:stone"},
         {"default:stone", "", "default:stone"},
         {"", "default:stone", ""},
         }
 })
-
-
-

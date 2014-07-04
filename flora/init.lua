@@ -36,7 +36,7 @@ for i in ipairs(mushlight) do
 end
 
 -- The bioluminescent sand (in real life) is -- usually -- the result of
--- _Noctiluca scintillans_. Again, not a plant (it's a protist) but it's in this
+-- _Noctiluca scintillans_. Again, not a plant (it's a protist) but it's in
 -- flora mod until I work out a better place to put it
 
 local sandlight = { 14, 10, 7, 4 }
@@ -60,4 +60,15 @@ for i in ipairs(sandlight) do
 	})
 end
 
+minetest.register_node("mtz:lum_sand_green", {
+	description = "Green Bioluminescent Sand",
+	drop = "mtz:lum_sand_green",
+	tiles = { "mtz_lum_sand_green.png" },
+	is_ground_content = true,
+	groups = { crumbly=3, falling_node=1, sand=1 },
+	sounds = default.node_sound_sand_defaults(),
+	light_source = 12,
+})
+
 dofile(mtz.modpath.."/flora/abm.lua")
+dofile(mtz.modpath.."/flora/crafts.lua")
