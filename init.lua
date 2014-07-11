@@ -27,10 +27,10 @@ minetest.register_privilege("tester",
           give_to_singleplayer= false }
     )
 
+dofile(mtz.modpath.."/vessels/init.lua")
 dofile(mtz.modpath.."/flora/init.lua")
 dofile(mtz.modpath.."/geology/init.lua")
 dofile(mtz.modpath.."/tests/init.lua")
-dofile(mtz.modpath.."/vessels/init.lua")
 dofile(mtz.modpath.."/tools/init.lua")
 dofile(mtz.modpath.."/building/init.lua")
 

@@ -110,5 +110,57 @@ minetest.register_node("mtz:lum_sand_green", {
 	light_source = 12,
 })
 
+minetest.register_node("mtz:glow_essence_green", {
+    description = "Green Glow Essence",
+    drawtype = "plantlike",
+    tiles = {"mtz_vessels_glass_green.png"},
+    inventory_image = "mtz_vessels_glass_green.png",
+    wield_image = "mtz_vessels_glass_green.png",
+    paramtype = "light",
+    walkable = false,
+    selection_box = {
+      type = "fixed",
+      fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
+    },
+    groups = {vessel=1,dig_immediate=3,attached_node=1},
+    sounds = default.node_sound_glass_defaults(),
+    light_source = 4,
+    on_use = minetest.item_eat(8, "vessels:glass_bottle"),
+})
+
+minetest.register_node("mtz:glow_essence_blue", {
+    description = "Blue Glow Essence",
+    drawtype = "plantlike",
+    tiles = {"mtz_vessels_glass_blue.png"},
+    inventory_image = "mtz_vessels_glass_blue.png",
+    wield_image = "mtz_vessels_glass_blue.png",
+    paramtype = "light",
+    walkable = false,
+    selection_box = {
+      type = "fixed",
+      fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
+    },
+    groups = {vessel=1,dig_immediate=3,attached_node=1},
+    sounds = default.node_sound_glass_defaults(),
+    light_source = 4,
+})
+
+minetest.register_node("mtz:apple_juice", {
+    description = "Apple Juice",
+    drawtype = "plantlike",
+    tiles = {"mtz_vessels_applejuice.png"},
+    inventory_image = "mtz_vessels_applejuice.png",
+    wield_image = "mtz_vessels_applejuice.png",
+    paramtype = "light",
+    walkable = false,
+    selection_box = {
+      type = "fixed",
+      fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
+    },
+    groups = {vessel=1,dig_immediate=3,attached_node=1},
+    sounds = default.node_sound_glass_defaults(),
+    on_use = minetest.item_eat(3, "vessels:glass_bottle"),
+})
+
 dofile(mtz.modpath.."/flora/abm.lua")
 dofile(mtz.modpath.."/flora/crafts.lua")

@@ -1,5 +1,5 @@
 
--- TODO: The tools should really be in their own file (at least), or better 
+-- TODO: The tools should really be in their own file (at least), or better
 --       still, in a separate mod
 
 minetest.register_craftitem("mtz:steelrod", {
@@ -25,6 +25,12 @@ minetest.register_craft({
         }
 })
 
+minetest.register_craft({
+	output = "mtz:marble_glow_red",
+	type = "shapeless",
+  recipe = { "mtz:glowconcentrate_red", "morestones:marble" },
+})
+
 minetest.register_tool("mtz:pick_orichalcum", {
     description = "Orichalcum Pickaxe",
     inventory_image = "mtz_tools_orichalcum_pick.png",
@@ -37,3 +43,5 @@ minetest.register_tool("mtz:pick_orichalcum", {
         damage_groups = {fleshy=5},
     },
 })
+
+

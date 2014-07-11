@@ -94,5 +94,16 @@ minetest.register_ore({
     flags          = "absheight",
 })
 
+------
+
+minetest.register_node("mtz:marble_glow_red", {
+    description = "Bioluminescent marble (red)",
+    tiles = {"mtz_marble_deepred.png"},
+    is_ground_content = true,
+    groups = {cracky=2, stone=1},
+		light_source = 10,
+    sounds = default.node_sound_stone_defaults(),
+})
+
 dofile(mtz.modpath .. "/geology/crafts.lua")
 
