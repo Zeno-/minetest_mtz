@@ -28,11 +28,3 @@ minetest.register_craftitem("mtz:test_treespawner", {
 	end
 })
 
-minetest.register_node("mtz:smurf", {
-    description = "A SMURF",
-    drawtype = "plantlike",
-    tiles = {"smurf.png"},
-    inventory_image = "smurf.png",
-    wield_image = "smurf.png",
-		on_use = minetest.item_eat(16),
-})
