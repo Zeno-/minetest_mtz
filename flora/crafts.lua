@@ -63,7 +63,7 @@ minetest.register_craftitem("mtz:glowconcentrate", {
 	inventory_image = "mtz_testtube_neutral.png",
 })
 minetest.register_craft({
-	output = "mtz:glowconcentrate 2",
+	output = "mtz:glowconcentrate",
 	type = "cooking",
 	recipe = "mtz:glow_essence_green",
 	cooktime = 4,
@@ -78,8 +78,11 @@ minetest.register_craft({
 	type = "shapeless",
 	recipe = { "mtz:testtube_empty", "mtz:mycena_powder", "bucket:bucket_water" }
 })
-
--- Concentrate derivatives
+minetest.register_craft({
+	output = "mtz:glowconcentrate_green",
+	type = "shapeless",
+	recipe = { "dye:green", "mtz:glowconcentrate" }
+})
 
 minetest.register_craftitem("mtz:glowconcentrate_red", {
 	description = "Glow concentrate (red)",
@@ -90,3 +93,4 @@ minetest.register_craft({
 	type = "shapeless",
 	recipe = { "dye:red", "mtz:glowconcentrate" },
 })
+
