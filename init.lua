@@ -31,6 +31,7 @@ dofile(mtz.modpath.."/vessels/init.lua")
 dofile(mtz.modpath.."/flora/init.lua")
 dofile(mtz.modpath.."/geology/init.lua")
 dofile(mtz.modpath.."/tests/init.lua")
+dofile(mtz.modpath.."/misc/init.lua")
 dofile(mtz.modpath.."/tools/init.lua")
 dofile(mtz.modpath.."/building/init.lua")
 
