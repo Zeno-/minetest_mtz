@@ -11,3 +11,9 @@ minetest.register_craft({
 	type = "shapeless",
   recipe = { "mtz:glowconcentrate_green", "morestones:marble" },
 })
+
+minetest.register_craft({
+	output = "mtz:marble_glow_blue",
+	type = "shapeless",
+  recipe = { "mtz:glowconcentrate_blue", "morestones:marble" },
+})

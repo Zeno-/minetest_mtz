@@ -114,5 +114,14 @@ minetest.register_node("mtz:marble_glow_green", {
     sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_node("mtz:marble_glow_blue", {
+    description = "Luminescent marble (blue)",
+    tiles = {"mtz_marble_blue.png"},
+    is_ground_content = true,
+    groups = {cracky=2, stone=1},
+		light_source = 7,
+    sounds = default.node_sound_stone_defaults(),
+})
+
 dofile(mtz.modpath .. "/geology/crafts.lua")
 

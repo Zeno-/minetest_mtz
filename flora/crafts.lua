@@ -97,3 +97,13 @@ minetest.register_craft({
 	type = "shapeless",
 	recipe = { "dye:red", "mtz:glowconcentrate" },
 })
+
+minetest.register_craftitem("mtz:glowconcentrate_blue", {
+	description = "Glow concentrate (blue)",
+	inventory_image = "mtz_testtube_blue.png",
+})
+minetest.register_craft({
+	output = "mtz:glowconcentrate_blue",
+	type = "shapeless",
+	recipe = { "dye:blue", "mtz:glowconcentrate" },
+})
