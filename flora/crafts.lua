@@ -22,6 +22,8 @@ minetest.register_craft({
   recipe = { "default:sand", "mtz:mycena_powder" },
 })
 
+-- TODO: These don't belong in this file
+
 -- Potions
 
 -- for historical reasons categorised as a potion
@@ -55,6 +57,8 @@ minetest.register_craft({
         {"", "vessels:glass_bottle", ""},
     }
 })
+
+-- TODO: These don't belong in this file
 
 -- Concentrates
 
@@ -93,4 +97,3 @@ minetest.register_craft({
 	type = "shapeless",
 	recipe = { "dye:red", "mtz:glowconcentrate" },
 })
-
