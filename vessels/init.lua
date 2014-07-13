@@ -1,3 +1,15 @@
+minetest.register_craftitem("mtz:testtube_empty", {
+	description = "Test tube (empty) ",
+	inventory_image = "mtz_testtube_empty.png",
+})
+minetest.register_craft({
+    output = "mtz:testtube_empty",
+    recipe = {
+        {"", "default:glass", ""},
+        {"", "default:glass", ""},
+        {"", "default:glass", ""},
+        }
+})
 
 ----------------------------- INVENTORY ONLY ---------------------------------
 
@@ -15,16 +27,3 @@ minetest.register_craft({
         }
 })
 
-minetest.register_craftitem("mtz:testtube_empty", {
-	description = "Test tube (empty) ",
-	inventory_image = "mtz_testtube_empty.png",
-})
-
-minetest.register_craft({
-    output = "mtz:testtube_empty",
-    recipe = {
-        {"", "default:glass", ""},
-        {"", "default:glass", ""},
-        {"", "default:glass", ""},
-        }
-})

@@ -6,7 +6,6 @@ minetest.register_craftitem("mtz:steelrod", {
     description = "Steel Rod",
     inventory_image = "mtz_metals_steelrod.png",
 })
-
 minetest.register_craft({
     output = "mtz:steelrod 9",
     recipe = {
@@ -24,13 +23,6 @@ minetest.register_craft({
         {"", "mtz:steelrod", ""},
         }
 })
-
-minetest.register_craft({
-	output = "mtz:marble_glow_red",
-	type = "shapeless",
-  recipe = { "mtz:glowconcentrate_red", "morestones:marble" },
-})
-
 minetest.register_tool("mtz:pick_orichalcum", {
     description = "Orichalcum Pickaxe",
     inventory_image = "mtz_tools_orichalcum_pick.png",
@@ -42,6 +34,20 @@ minetest.register_tool("mtz:pick_orichalcum", {
         },
         damage_groups = {fleshy=5},
     },
+})
+
+-- Luminescent marble
+
+minetest.register_craft({
+	output = "mtz:marble_glow_red",
+	type = "shapeless",
+  recipe = { "mtz:glowconcentrate_red", "morestones:marble" },
+})
+
+minetest.register_craft({
+	output = "mtz:marble_glow_green",
+	type = "shapeless",
+  recipe = { "mtz:glowconcentrate_green", "morestones:marble" },
 })
 
 

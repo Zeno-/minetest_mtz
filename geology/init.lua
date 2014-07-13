@@ -94,14 +94,23 @@ minetest.register_ore({
     flags          = "absheight",
 })
 
-------
+-- Luminescent marble
 
 minetest.register_node("mtz:marble_glow_red", {
-    description = "Bioluminescent marble (red)",
+    description = "Luminescent marble (red)",
     tiles = {"mtz_marble_deepred.png"},
     is_ground_content = true,
     groups = {cracky=2, stone=1},
-		light_source = 10,
+		light_source = 7,
+    sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("mtz:marble_glow_green", {
+    description = "Luminescent marble (green)",
+    tiles = {"mtz_marble_green.png"},
+    is_ground_content = true,
+    groups = {cracky=2, stone=1},
+		light_source = 7,
     sounds = default.node_sound_stone_defaults(),
 })
 
