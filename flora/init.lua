@@ -53,7 +53,7 @@ minetest.register_node("mtz:mushroom_a", {
 			type = "fixed",
 			fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
-	on_use = minetest.item_eat(2),
+	on_use = minetest.item_eat(3),
 })
 
 minetest.register_node("mtz:mushroom_a_group", {
