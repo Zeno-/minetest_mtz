@@ -46,7 +46,7 @@ minetest.register_craft({
 })
 
 minetest.register_craftitem("mtz:platinum_coin_1", {
-	description = "Platinum coin",
+	description = "One Samwich",
 	inventory_image = "mtz_platinum_coin_1.png",
 })
 
