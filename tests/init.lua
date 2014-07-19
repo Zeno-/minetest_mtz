@@ -27,15 +27,3 @@ minetest.register_craftitem("mtz:test_treespawner", {
 		end
 	end
 })
-
-
-minetest.register_node("mtz:chainlynx", {
-    description = "Yummy",
-		drawtype = "plantlike",
-    tiles = {"chainlynx.png"},
-		inventory_image = {"chainlynx.png"},
-		weild_image = {"chainlynx.png"},
-		on_use = minetest.item_eat(16),
-					sunlight_propagates = true,
-			paramtype = "light",
-})
