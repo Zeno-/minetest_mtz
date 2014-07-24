@@ -25,7 +25,7 @@ minetest.register_alias("mtz_tests:treespawner",             "mtz:test_treespawn
 minetest.register_privilege("tester",
         { "Player can test unreleased features.",
           give_to_singleplayer= false }
-    )
+)
 
 dofile(mtz.modpath.."/vessels/init.lua")
 dofile(mtz.modpath.."/flora/init.lua")
@@ -35,5 +35,6 @@ dofile(mtz.modpath.."/misc/init.lua")
 dofile(mtz.modpath.."/tools/init.lua")
 dofile(mtz.modpath.."/building/init.lua")
 dofile(mtz.modpath.."/dye_extensions/init.lua")
+dofile(mtz.modpath.."/modutils/init.lua")
 
 dofile(mtz.modpath.."/forbiddenitems.lua")
