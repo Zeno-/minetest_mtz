@@ -16,6 +16,6 @@ minetest.register_chatcommand("tprules", {
 			minetest.chat_send_player(player, "Unknown player", true)
 			return
 		end
-		tplayer:setpos({x=137, y=31, z=362})
+		tplayer:setpos({x=146, y=182, z=368})
 	end
 })
