@@ -27,6 +27,12 @@ minetest.register_privilege("tester",
           give_to_singleplayer= false }
 )
 
+-- Does nothing... is a joke
+minetest.register_privilege("mob",
+        { "The player is a mob.",
+          give_to_singleplayer= false }
+)
+
 dofile(mtz.modpath.."/vessels/init.lua")
 dofile(mtz.modpath.."/flora/init.lua")
 dofile(mtz.modpath.."/geology/init.lua")
