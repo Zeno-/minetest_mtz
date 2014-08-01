@@ -19,3 +19,18 @@ minetest.register_chatcommand("tprules", {
 		tplayer:setpos({x=146, y=182, z=368})
 	end
 })
+
+minetest.register_chatcommand("whois", {
+	params = "",
+	description = "Get player ip",
+	privs = { moderator = true },
+	func = function(player, message)
+		local pinfo = minetest.get_player_information(message)
+		if not pinfo then
+			minetest.chat_send_player(player, "Failed to retrieve player info", true)
+			return
+		end
+		minetest.chat_send_player(player, "IP for " .. message .. " = " .. pinfo.address, true)
+	end
+})
+
