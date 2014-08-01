@@ -30,7 +30,9 @@ minetest.register_chatcommand("whois", {
 			minetest.chat_send_player(player, "Failed to retrieve player info", true)
 			return
 		end
-		minetest.chat_send_player(player, "IP for " .. message .. " = " .. pinfo.address, true)
+		minetest.chat_send_player(player,
+			message .. ": " .. pinfo.address .. " (avg_rtt=" ..
+			string.format("%.3f", pinfo.avg_rtt) .. ")", true)
 	end
 })
 
