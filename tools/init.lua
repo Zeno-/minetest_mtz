@@ -36,7 +36,7 @@ minetest.register_tool("mtz:axe_orichalcum", {
 		full_punch_interval = 0.9,
 		max_drop_level = 3,
 		groupcaps = {
-			choppy={times={[1]=2.0, [2]=0.90, [3]=0.50}, uses=80, maxlevel=3},
+			choppy={times={[1]=2.0, [2]=0.85, [3]=0.45}, uses=80, maxlevel=3},
 		},
 		damage_groups = {fleshy=7},
 	},
@@ -58,7 +58,7 @@ minetest.register_tool("mtz:shovel_orichalcum", {
 		full_punch_interval = 0.9,
 		max_drop_level = 3,
 		groupcaps = {
-			crumbly = {times={[1]=1.0, [2]=0.40, [3]=0.30}, uses=80, maxlevel=3},
+			crumbly = {times={[1]=1.0, [2]=0.45, [3]=0.25}, uses=80, maxlevel=3},
 		},
 		damage_groups = {fleshy=4},
 	},
