@@ -48,6 +48,7 @@ minetest.register_craft({
 minetest.register_craftitem("mtz:platinum_coin_1", {
 	description = "One Samwich",
 	inventory_image = "mtz_platinum_coin_1.png",
+	stack_max = 10000,
 })
 
 minetest.register_craft({
