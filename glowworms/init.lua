@@ -38,7 +38,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		return
 	end
 
-	--local t1 = os.clock()
+	local t1 = os.clock()
 
 
 	local c_air = minetest.get_content_id("air")
@@ -62,7 +62,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		end
 	end
 
-	--print ("[glowworm_gen] chunk minp ("..x0.." "..y0.." "..z0..")") --tell people you are generating a chunk
+	print ("[glowworm_gen] chunk minp ("..x0.." "..y0.." "..z0..")") --tell people you are generating a chunk
 
 	local sidelen = x1 - x0 + 1 --length of a mapblock
 	local chulens = {x=sidelen, y=sidelen, z=sidelen} --table of chunk edges
@@ -84,11 +84,13 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				if  nv >= 0.10 and nv <= 0.40 and math.random() < 0.15 then
 					local ai = area:index(x,y+1,z)
 					if data[ai] == c_stone and data[vi] == c_air then
-						local wormheight = math.random(3)
+						local wormheight = math.random(4)
 						local destidx = vi
-						for i = 1, wormheight do
-							data[destidx] = c_worm
-							destidx = area:index(x,y-i,z)
+						for i = 0, wormheight-1 do
+							-- See comment below for explanation (just before vm:setdata())
+							minetest.set_node({x=x, y=y-i, z=z}, {name = "mtz:glow_worm_green"})
+							--data[destidx] = c_worm
+							destidx = area:index(x,y-i-1,z)
 							if data[destidx] ~= c_air then
 								break
 							end
@@ -103,13 +105,17 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		nidx = nidx + sidelen
 	end
 
-	vm:set_data(data)
-	vm:set_lighting({day=0, night=0})
-	vm:calc_lighting()
-	vm:write_to_map(data)
+	-- In this version, set_node is used instead of changing data[]. This is because
+	-- mods that use set_node() (e.g. plantlife) conflict with those that use vmanip.
+	-- c.f. https://github.com/minetest/minetest/issues/1354
 
-	--local chugent = math.ceil((os.clock() - t1) * 1000)
-	--print ("[glowworm_gen] "..chugent.." ms")
+	--vm:set_data(data)
+	--vm:set_lighting({day=0, night=0})
+	--vm:calc_lighting()
+	--vm:write_to_map(data)
+
+	local chugent = math.ceil((os.clock() - t1) * 1000)
+	print ("[glowworm_gen] "..chugent.." ms")
 end)
 
 print("[glowworm_gen] loaded!")
