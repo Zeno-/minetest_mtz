@@ -38,7 +38,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		return
 	end
 
-	local t1 = os.clock()
+	--local t1 = os.clock()
 
 
 	local c_air = minetest.get_content_id("air")
@@ -62,7 +62,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		end
 	end
 
-	print ("[glowworm_gen] chunk minp ("..x0.." "..y0.." "..z0..")") --tell people you are generating a chunk
+	--print ("[glowworm_gen] chunk minp ("..x0.." "..y0.." "..z0..")") --tell people you are generating a chunk
 
 	local sidelen = x1 - x0 + 1 --length of a mapblock
 	local chulens = {x=sidelen, y=sidelen, z=sidelen} --table of chunk edges
@@ -114,8 +114,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	--vm:calc_lighting()
 	--vm:write_to_map(data)
 
-	local chugent = math.ceil((os.clock() - t1) * 1000)
-	print ("[glowworm_gen] "..chugent.." ms")
+	--local chugent = math.ceil((os.clock() - t1) * 1000)
+	--print ("[glowworm_gen] "..chugent.." ms")
 end)
 
 print("[glowworm_gen] loaded!")
