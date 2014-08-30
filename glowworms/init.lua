@@ -75,6 +75,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local data = vm:get_data()
 
 	local nidx = 1
+	local dirty = false
 
 	for z = z0, z1 do
 		for y = y0, y1 do
@@ -82,13 +83,15 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			for x = x0, x1 do
 				local nv = noise[nidx]
 				if  nv >= 0.10 and nv <= 0.40 and math.random() < 0.15 then
-					local ai = area:index(x,y+1,z)
+					local ai = area:index(x, y + 1, z)
 					if data[ai] == c_stone and data[vi] == c_air then
+						dirty = true
 						local wormheight = math.random(3)
 						local destidx = vi
-						for i = 1, wormheight do
+						for i = 0, wormheight - 1 do
 							data[destidx] = c_worm
-							destidx = area:index(x,y-i,z)
+							destidx = area:index(x, y - i - 1, z)
+							--destidx = destidx - area.ystride
 							if data[destidx] ~= c_air then
 								break
 							end
@@ -103,10 +106,11 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		nidx = nidx + sidelen
 	end
 
-	vm:set_data(data)
-	vm:set_lighting({day=0, night=0})
-	vm:calc_lighting()
-	vm:write_to_map(data)
+	if dirty then
+		vm:set_data(data)
+		vm:calc_lighting()
+		vm:write_to_map()
+	end
 
 	--local chugent = math.ceil((os.clock() - t1) * 1000)
 	--print ("[glowworm_gen] "..chugent.." ms")
