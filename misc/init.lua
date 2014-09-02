@@ -10,3 +10,4 @@ minetest.register_craft({
         {"", "default:steel_ingot", ""},
         }
 })
+
