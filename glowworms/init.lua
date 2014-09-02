@@ -75,6 +75,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local data = vm:get_data()
 
 	local nidx = 1
+	local dirty = false
 
 	for z = z0, z1 do
 		for y = y0, y1 do
@@ -82,7 +83,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			for x = x0, x1 do
 				local nv = noise[nidx]
 				if  nv >= 0.10 and nv <= 0.40 and math.random() < 0.15 then
-					local ai = area:index(x,y+1,z)
+					local ai = area:index(x, y + 1, z)
 					if data[ai] == c_stone and data[vi] == c_air then
 						local wormheight = math.random(4)
 						local destidx = vi
@@ -105,14 +106,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		nidx = nidx + sidelen
 	end
 
-	-- In this version, set_node is used instead of changing data[]. This is because
-	-- mods that use set_node() (e.g. plantlife) conflict with those that use vmanip.
-	-- c.f. https://github.com/minetest/minetest/issues/1354
-
-	--vm:set_data(data)
-	--vm:set_lighting({day=0, night=0})
-	--vm:calc_lighting()
-	--vm:write_to_map(data)
 
 	--local chugent = math.ceil((os.clock() - t1) * 1000)
 	--print ("[glowworm_gen] "..chugent.." ms")
