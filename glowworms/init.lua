@@ -77,33 +77,32 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local nidx = 1
 	local dirty = false
 
-	for z = z0, z1 do
-		for y = y0, y1 do
-			local vi = area:index(x0, y, z)
-			for x = x0, x1 do
-				local nv = noise[nidx]
-				if  nv >= 0.10 and nv <= 0.40 and math.random() < 0.15 then
-					local ai = area:index(x, y + 1, z)
-					if data[ai] == c_stone and data[vi] == c_air then
-						dirty = true
-						local wormheight = math.random(3)
-						local destidx = vi
-						for i = 0, wormheight - 1 do
-							data[destidx] = c_worm
-							destidx = area:index(x, y - i - 1, z)
-							--destidx = destidx - area.ystride
-							if data[destidx] ~= c_air then
-								break
+	for x = x0, x1 do
+		for z = z0, z1 do
+			local nv = noise[nidx]
+			if  nv >= 0 and nv <= 0.40 then
+				for y = y0, y1 - 1 do
+					if math.random() < 0.15 then
+						local idx1 = area:index(x, y, z)
+						local idx2 = area:index(x, y - 1, z)
+						if data[idx1] == c_stone and data[idx2] == c_air then
+							local wormheight = math.random(4)
+							local destidx = idx2
+							for i = 1, wormheight do
+								dirty = true
+								data[destidx] = c_worm
+								destidx = area:index(x, y - i - 1, z)
+								if data[destidx] ~= c_air then
+									break
+								end
 							end
+							y = y + wormheight
 						end
 					end
 				end
-				nidx = nidx + 1
-				vi = vi + 1
 			end
-			nidx = nidx - sidelen
+			nidx = nidx + 1
 		end
-		nidx = nidx + sidelen
 	end
 
 	if dirty then
