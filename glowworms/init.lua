@@ -81,7 +81,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		for z = z0, z1 do
 			local nv = noise[nidx]
 			if  nv >= 0 and nv <= 0.40 then
-				for y = y0, y1 - 1 do
+				for y = y0 + 1, y1 do
 					if math.random() < 0.15 then
 						local idx1 = area:index(x, y, z)
 						local idx2 = area:index(x, y - 1, z)
