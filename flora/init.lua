@@ -1,7 +1,8 @@
 
 -- Yes, I am aware that fungi are not plants
 
-local mushlight = { 4, 3, 2, 1 }
+--local mushlight = { 4, 3, 2, 1 }
+local mushlight = { 11, 9, 6, 3 }
 local mushscale = { 1.0, 0.90, 0.75, 0.5 }
 
 for i in ipairs(mushlight) do
