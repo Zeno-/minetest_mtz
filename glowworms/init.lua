@@ -80,7 +80,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	for x = x0, x1 do
 		for z = z0, z1 do
 			local nv = noise[nidx]
-			if  nv >= 0 and nv <= 0.35 then
+			if  nv >= 0 and nv <= 0.40 then
 				for y = y0 + 1, y1 do
 					if math.random() < 0.15 then
 						local idx1 = area:index(x, y, z)
@@ -92,6 +92,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								-- See comment below for explanation (just before vm:setdata())
 								minetest.set_node({x = x, y = y - i , z = z}, {name = "mtz:glow_worm_green"})
 								--data[destidx] = c_worm
+
 								destidx = area:index(x, y - i - 1, z)
 								if data[destidx] ~= c_air then
 									break
