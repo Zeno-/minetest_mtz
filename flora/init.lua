@@ -8,8 +8,10 @@ local mushscale = { 1.0, 0.90, 0.75, 0.5 }
 for i in ipairs(mushlight) do
 	if i == 1 then
 		nodename = "mtz:mycena"
+		not_in_creative = 0
 	else
 		nodename = "mtz:mycena_"..i
+		not_in_creative = 1
 	end
 	local vs = mushscale[i]
 
@@ -24,8 +26,11 @@ for i in ipairs(mushlight) do
 			paramtype = "light",
 			walkable = false,
 			buildable_to = true,
-			groups = {	snappy=3, flammable=0, flower=0,
-									flora=1, attached_node=1, color_green=1 },
+			groups = {
+				snappy=3, flammable=0, flower=0,
+				flora=1, attached_node=1, color_green=1,
+				not_in_creative_inventory = not_in_creative
+			},
 			sounds = default.node_sound_leaves_defaults(),
 			light_source = mushlight[i],
 			visual_scale = vs,
@@ -47,8 +52,9 @@ minetest.register_node("mtz:mushroom_a", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
-	groups = {	snappy=3, flammable=0, flower=0,
-							flora=1, attached_node=1 },
+	groups = {
+		snappy=3, flammable=0, flower=0,
+		flora=1, attached_node=1 },
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 			type = "fixed",
@@ -68,8 +74,10 @@ minetest.register_node("mtz:mushroom_a_group", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
-	groups = {	snappy=3, flammable=0, flower=0,
-							flora=1, attached_node=1 },
+	groups = {
+		snappy=3, flammable=0, flower=0,
+		flora=1, attached_node=1
+	},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 			type = "fixed",
@@ -87,8 +95,10 @@ for i in ipairs(sandlight) do
 	local nodename
 	if i == 1 then
 		nodename = "mtz:lum_sand"
+		not_in_creative = 0
 	else
 		nodename = "mtz:lum_sand_"..i
+		not_in_creative = 1
 	end
 
 	minetest.register_node(nodename, {
@@ -96,7 +106,10 @@ for i in ipairs(sandlight) do
 		drop = "mtz:lum_sand",
 		tiles = { "mtz_lum_sand.png" },
 		is_ground_content = true,
-		groups = { crumbly=3, falling_node=1, sand=1 },
+		groups = {
+				crumbly=3, falling_node=1, sand=1,
+				not_in_creative_inventory = not_in_creative
+		},
 		sounds = default.node_sound_sand_defaults(),
 		light_source = sandlight[i],
 	})
