@@ -19,8 +19,9 @@ local function put_player_at_spawn(obj)
 
 	local config_setting
 
-	-- players without interact spawn at the location specified by
-	-- "alt_spawnpoint" in the .conf file
+	-- players with interact spawn at the location specified by
+	-- "alt_spawnpoint" in the .conf file. Those *without* interact go to
+	-- "static_spawnpoint".
 
 	if not minetest.get_player_privs(obj:get_player_name()).interact then
 		config_setting  = "static_spawnpoint"
