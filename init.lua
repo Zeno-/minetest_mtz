@@ -44,5 +44,6 @@ dofile(mtz.modpath.."/dye_extensions/init.lua")
 dofile(mtz.modpath.."/modutils/init.lua")
 dofile(mtz.modpath.."/glowworms/init.lua")
 dofile(mtz.modpath.."/fun/toys.lua")
+dofile(mtz.modpath.."/spawn/init.lua")
 
 dofile(mtz.modpath.."/forbiddenitems.lua")
