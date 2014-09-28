@@ -15,6 +15,7 @@ local function check_spawnpoint(config_setting)
 	return true
 end
 
+
 local function put_player_at_spawn(obj)
 
 	local config_setting
@@ -44,17 +45,18 @@ local function put_player_at_spawn(obj)
 	return true
 end
 
-minetest.register_on_chat_message(function(name, message, playername, player)
-	local cmd = "/spawn"
-	if message:sub(0, #cmd) == cmd then
-		if message == '/spawn' then
-			local player = minetest.env:get_player_by_name(name)
-				minetest.chat_send_player(player:get_player_name(), "Teleporting to spawn...")
-				put_player_at_spawn(player)
-			return true
+
+minetest.register_chatcommand("spawn", {
+	description = "Teleport to the spawn location",
+	func = function(name, _)
+		local ok = put_player_at_spawn(minetest.get_player_by_name(name))
+		if ok then
+			return true, "Teleporting to spawn..."
 		end
+		return false, "Teleport failed"
 	end
-end)
+})
+
 
 minetest.register_on_newplayer(function(obj)
 	return put_player_at_spawn(obj)
