@@ -1,32 +1,44 @@
-local mycena_interval     = 60*20
-local mycena_chance       = 3250
+local mycena_interval     = 60*10 --60*20
+local mycena_chance       = 1000
+--local mycena_interval     = 60*20
+--local mycena_chance       = 3250
 local lumsand_interval    = 60*30
 local lumsand_chance      = 3500
 
+-- PerlinNoise(seed, octaves, persistence, scale)
+--mtz.mycena_noise = PerlinNoise(1481, 4, 0.5, 250)
+
 
 minetest.register_abm({
-		nodenames = {"default:dirt", "default:dirt_with_grass"},
+		nodenames = {"default:jungletree"},
 		interval = mycena_interval,
 		chance = mycena_chance,
 		action = function(pos, node)
-			local destnode = { x = pos.x + 3 - math.random(6), y = pos.y+1, z = pos.z + 3 - math.random(6)}
+			local destnode = { x = pos.x + 5 - math.random(10), y = pos.y + 3 - math.random(6), z = pos.z + 5 - math.random(10)}
 			local name = minetest.get_node(destnode).name
 			local nameunder = minetest.get_node({x = destnode.x, y = destnode.y-1, z = destnode.z}).name
 
-			if name ~= "air" or (nameunder ~= "default:dirt" and nameunder ~= "default:dirt_with_grass") then
+			--if name ~= "air" or (nameunder ~= "default:dirt" and nameunder ~= "default:dirt_with_grass") then
+			if name ~= "air" or (minetest.get_item_group(nameunder, "soil") == 0) then
 				return
 			end
 
-			if not minetest.find_node_near(destnode, 2, "default:jungletree") then
-				return
-			end
+			--if not minetest.find_node_near(destnode, 2, "group:soil") then
+			--	return
+			--end
 
-			local pos0 = { x = destnode.x-6, y = destnode.y-6, z = destnode.z-6 }
-			local pos1 = { x = destnode.x+6, y = destnode.y+6, z = destnode.z+6 }
+			--print("N: " .. mtz.mycena_noise:get2d(destnode))
+
+			--local nv = mtz.mycena_noise:get2d({x = destnode.x + 250, y = destnode.y, z = destnode.y + 400})
+			--if  nv < -0.72 then return end
+
+
+			local pos0 = { x = destnode.x-8, y = destnode.y-8, z = destnode.z-8 }
+			local pos1 = { x = destnode.x+8, y = destnode.y+8, z = destnode.z+8 }
 
 			local mushcount = minetest.find_nodes_in_area(pos0, pos1, "mtz_flora:mycena")
 
-			if #mushcount > 3 then
+			if #mushcount > 4 then
 					return
 			end
 
