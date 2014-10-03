@@ -1,5 +1,5 @@
-local mycena_interval     = 60*10 --60*20
-local mycena_chance       = 1000
+local mycena_interval     = 60--60*10 --60*20
+local mycena_chance       = 100
 --local mycena_interval     = 60*20
 --local mycena_chance       = 3250
 local lumsand_interval    = 60*30
