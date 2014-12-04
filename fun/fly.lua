@@ -1,0 +1,15 @@
+minetest.register_node("mtz:fly", {
+	description = "Fly",
+	tiles = {"mtz_fly.png"},
+	inventory_image = "mtz_fly.png",
+	weild_image = "mtz_fly.png",
+	is_ground_content = false,
+	groups = {choppy=2,dig_immediate=2,attached_node=1},
+	drawtype = "signlike",
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	buildable_to = false,
+	visual_scale = 0.5,
+	on_use = minetest.item_eat(3),
+})

@@ -1,6 +1,4 @@
 
--- Some modified from: Minetest: builtin/static_spawn.lua
-
 local function check_spawnpoint(config_setting)
 	if not minetest.setting_get(config_setting) then
 		minetest.log('error', "The \"" .. config_setting .. "\" setting is not set")
