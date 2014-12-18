@@ -36,7 +36,7 @@ minetest.register_abm({
 			local pos0 = { x = destnode.x-8, y = destnode.y-8, z = destnode.z-8 }
 			local pos1 = { x = destnode.x+8, y = destnode.y+8, z = destnode.z+8 }
 
-			local mushcount = minetest.find_nodes_in_area(pos0, pos1, "mtz_flora:mycena")
+			local mushcount = minetest.find_nodes_in_area(pos0, pos1, "mtz:mycena")
 
 			if #mushcount > 4 then
 					return
