@@ -13,3 +13,8 @@ minetest.register_craftitem("mtz:q_beetle", {
 	inventory_image = "mtz_beetle.png",
 })
 
+minetest.register_craftitem("mtz:q_parrot", {
+	description = "A stuffed parrot. It seems to be sleeping.",
+	inventory_image = "mtz_parrot.png",
+})
+
